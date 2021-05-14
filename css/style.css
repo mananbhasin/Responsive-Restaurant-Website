@@ -74,12 +74,12 @@ body.dark-theme{
 
 
 body{
-    margin: var(--header-height) 0 0 0;
+    margin: 0 0 0 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
+    line-height: 1.6;
     background-color: var(--body-color);
     color: var(--text-color);
-    line-height: 1.6;
 }
 
 h1,h2,h3,p,ul{
@@ -120,4 +120,120 @@ img{
     color: var(--first-color);
     font-weight: var(--font-medium);
     margin-bottom: var(--mb-1);
+}
+
+/* Layout */
+.bd-container{
+  max-width: 960px;
+  width: calc(100% - 2rem);
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
+
+.bd-grid{
+  display: grid;
+  gap: 1.5rem;
+}
+
+.l-header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--body-color);
+}
+
+/* Nav */
+.nav{
+    max-width: 1024px;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media screen and (max-width: 768px){
+    .nav-menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 0 1rem;
+        text-align: center;
+        background-color: var(--body-color);
+        transition: .4s;
+        box-shadow: 0 4px 4px rgba(0,0,0,.1);
+        border-radius: 0 0 1rem 1rem;
+        z-index: var(--z-fixed);
+    }
+}
+
+.nav-item{
+    margin-bottom: var(--mb-1);
+}
+
+.nav-link, .nav-logo, .nav-toggle{
+    color: var(--text-color);
+    font-weight: var(--font-medium);
+}
+
+.nav-logo:hover{
+    color: var(--first-color);
+  }
+  
+.nav-link{
+    transition: .3s;
+}
+.nav-link:hover{
+    color: var(--first-color);
+}  
+  
+.nav-toggle{
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+/* Show Menu */
+.show-menu {
+    top: var(--header-height);
+}
+
+/* Active Link */
+.active-link {
+    color: var(--first-color);
+}
+
+/* Adding header shadow after scrolling */
+.scroll-header {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+/* Scroll Top */
+.scrolltop {
+    position: fixed;
+    right: 1rem;
+    bottom: -20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3rem;
+    background: rgba(6, 156, 84, .5);
+    border-radius: .4rem;
+    z-index: var(--z-toolkit);
+    transition: .4s;
+    visibility: hidden;
+}
+.scrolltop:hover {
+    background-color: var(--first-color-alt);
+}
+
+.scrolltop-icon {
+    font-size: 1.5rem;
+    color: var(--body-color);
+}
+
+/* Show Scrolltop */
+.show-scroll {
+    visibility: visible;
+    bottom: 1.5rem;
 }
